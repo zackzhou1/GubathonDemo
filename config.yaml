@@ -1,0 +1,5 @@
+chat_model: gpt-4.1
+image_model: dall-e-3
+tts_model: tts-1
+vision_model: gpt-4o
+open_ai_api_key: 18c7050c-317a-47e0-a8cc-c3a0b94fd65c #YOUR_API_KEY
