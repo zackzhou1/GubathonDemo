@@ -396,6 +396,24 @@ def agentic_workflows_demo():
     except Exception as e:
         print(f"Error: {e}")
 
+def web_search_demo():
+    while True:
+        try:
+            user_query = input("Enter your question (or type 'quit' to exit): ").strip()
+            if user_query.lower() in ('quit', 'exit'):
+                print("Exiting.")
+                break
+
+            response = client.responses.create(
+                model="gpt-5",
+                tools=[{"type": "web_search"}],
+                input=user_query
+            )
+
+            print("Response:", response.output_text)
+        except Exception as e:
+            print("Error during request:", e)
+
 def evaluation_platforms_demo():
     print("\nEvaluation features are in beta. See https://github.com/openai/evals\n")
 
@@ -415,6 +433,7 @@ ALL_DEMOS = [
     ("File Search", file_search_demo),
     ("Model Optimization & Fine-tuning", model_optimization_demo),
     ("Agentic Workflows", agentic_workflows_demo),
+    ("Web Search", web_search_demo),
     ("Evaluation Platforms", evaluation_platforms_demo)
 ]
 
