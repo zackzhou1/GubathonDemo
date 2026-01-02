@@ -13,11 +13,14 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 def load_config():
     with open('config.yaml', 'r') as f:
-        return yaml.safe_load(f)
+        config = yaml.safe_load(f)
+    if os.path.exists('keyfile.yaml'):
+        with open('keyfile.yaml', 'r') as f:
+            keyfile = yaml.safe_load(f)
+        config.update(keyfile) 
+    return config
 
 CONFIG = load_config()
-
-# client = OpenAI(api_key=CONFIG['open_ai_api_key'])
 
 client = OpenAI(api_key=CONFIG['open_ai_api_key'], base_url="https://datalab-api.reyrey.net/Api/OpenAI")
 
