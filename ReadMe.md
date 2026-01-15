@@ -2,6 +2,12 @@
 
 ## Setup Instructions
 
+To get your datalab key, login here https://datalab.reyrey.net/Login
+
+and navigate to Budget Usage.
+
+The key should be available at the bottom of the page.
+
 ### 1. Create and Activate a Virtual Environment
 
 ```sh
